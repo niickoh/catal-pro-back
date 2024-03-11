@@ -46,7 +46,7 @@ app.post("/contacto", async (req, res) => {
     const options = {
       to: 'ni.catalmir@gmail.com',
       cc: req.body.correosCopia,
-      subject: 'Solicitud Contacto Catalpro',
+      subject: 'Solicitud de Contacto Catalpro',
       html: html,
       textEncoding: "base64",
       headers: [
