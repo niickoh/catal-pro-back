@@ -29,13 +29,6 @@ const ejs = require("ejs");
 const resolve = require("path").resolve;
 const sendMail = require("./lib/utils");
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
-
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
 app.post("/contacto", async (req, res) => {
     logger.info("Hello logs!", {structuredData: true});
     const datosContacto = req.body.datosContacto;
