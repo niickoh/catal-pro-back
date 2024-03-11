@@ -42,11 +42,10 @@ app.post("/contacto", async (req, res) => {
     logger.info("datosContacto!",datosContacto, {structuredData: true});
     const contactoAdd = await db.collection("Contactos").add(datosContacto);
     const file = fs.readFileSync(resolve("templates/mail-mensaje.html"), "utf-8");
-    const body = req.body.datosCorreo;
     const html= ejs.render(file);
     const options = {
       to: 'ni.catalmir@gmail.com',
-      cc: body.correosCopia,
+      cc: req.body.correosCopia,
       subject: 'Solicitud Contacto Catalpro',
       html: html,
       textEncoding: "base64",
