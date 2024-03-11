@@ -24,6 +24,9 @@ const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+const fs = require("fs");
+const ejs = require("ejs");
+const resolve = require("path").resolve;
 const sendMail = require("./lib/utils");
 
 // Create and deploy your first functions
@@ -38,7 +41,7 @@ app.post("/contacto", async (req, res) => {
     const datosContacto = req.body.datosContacto;
     logger.info("datosContacto!",datosContacto, {structuredData: true});
     const contactoAdd = await db.collection("Contactos").add(datosContacto);
-    const file = fs.readFileSync(resolve("templates/inicio-temporada.html"), "utf-8");
+    const file = fs.readFileSync(resolve("templates/mail-mensaje.html"), "utf-8");
     const body = req.body.datosCorreo;
     const html= ejs.render(file);
     const options = {
@@ -52,6 +55,7 @@ app.post("/contacto", async (req, res) => {
         {key: "X-Application-Version", value: "v1.0.0.2"},
       ],
     };
+    sendMail(options)
     res.send({message: "Contacto creado correctamente", contactoAdd});
 });
 
