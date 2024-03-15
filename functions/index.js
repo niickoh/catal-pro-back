@@ -38,6 +38,7 @@ const sendMail = require("./lib/utils");
 // });
 app.post("/contacto", async (req, res) => {
     logger.info("Hello logs!", {structuredData: true});
+    logger.info('req.body', req.body, {structuredData: true});
     const datosContacto = req.body.datosContacto;
     logger.info("datosContacto!",datosContacto, {structuredData: true});
     const contactoAdd = await db.collection("Contactos").add(datosContacto);
