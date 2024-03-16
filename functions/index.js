@@ -45,7 +45,7 @@ app.post("/contacto", async (req, res) => {
     const file = fs.readFileSync(resolve("templates/mail-mensaje.html"), "utf-8");
     const html= ejs.render(file);
     const options = {
-      to: 'ni.catalmir@gmail.com',
+      to: 'angelica.catalan@catalpro.cl',
       cc: req.body.correosCopia,
       subject: 'Solicitud de Contacto Catalpro',
       html: html,
