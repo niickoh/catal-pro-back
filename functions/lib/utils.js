@@ -4,7 +4,7 @@ const MailComposer = require("nodemailer/lib/mail-composer");
 const CLIENT_ID = "446658067529-nnc8agu8ndvvmc2olckt45std5ehjhh0.apps.googleusercontent.com";
 const CLIENT_SECRET = "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";
 const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
-const REFRESH_TOKEN = '1//04eR8JmNk0JNkCgYIARAAGAQSNwF-L9IrJiTo8YbkLpO4iPu_TaT0sakbptVTLozc_UyjzzeS0mWUyYX01PgOf7fS0a4m0r9lFkU';
+const REFRESH_TOKEN = '1//045-j_i4stn2FCgYIARAAGAQSNwF-L9IrM7oDATFxJu6q16J9pUFN_cEahSxdyZyYahTIbTL3mXUeFtzHq7yLCAwxUR-5B-Y1fPs';
 const getGmailService = function() {
   const oAuth2Client = new google.auth.OAuth2(
       // eslint-disable-next-line max-len
