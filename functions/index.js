@@ -43,9 +43,15 @@ app.post("/contacto", async (req, res) => {
     logger.info("datosContacto!",datosContacto, {structuredData: true});
     const contactoAdd = await db.collection("Contactos").add(datosContacto);
     const file = fs.readFileSync(resolve("templates/mail-mensaje.html"), "utf-8");
-    const html= ejs.render(file);
+    const datosCorreo = {
+      nombreCompleto: datosContacto.nombreCompleto,
+      email: datosContacto.email,
+      telefono: datosContacto.telefono,
+      mensaje: datosContacto.mensaje
+    }
+    const html= ejs.render(file, datosCorreo);
     const options = {
-      to: 'angelica.catalan@catalpro.cl',
+      to: ['angelica.catalan@catalpro.cl','contacto@catalpro.cl'],
       cc: req.body.correosCopia,
       subject: 'Solicitud de Contacto Catalpro',
       html: html,

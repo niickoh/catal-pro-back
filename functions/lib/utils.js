@@ -10,7 +10,8 @@ const getGmailService = function() {
       "https://developers.google.com/oauthplayground",
   );
   // eslint-disable-next-line max-len
-  oAuth2Client.setCredentials({refresh_token: "1//040hJUq41ogMNCgYIARAAGAQSNwF-L9Irv513UgSglhhd6i4khgdrFih1aIALdNLFefxyTrJh02XKjyfhgyfu9ysv0NrgwxBsgi4"});
+  const refresh_token = oAuth2Client.getAccessToken();
+  oAuth2Client.setCredentials({refresh_token});
   const gmail = google.gmail({version: "v1", auth: oAuth2Client});
   return gmail;
 };
