@@ -51,7 +51,8 @@ app.post("/contacto", async (req, res) => {
     }
     const html= ejs.render(file, datosCorreo);
     const options = {
-      to: ['angelica.catalan@catalpro.cl','contacto@catalpro.cl'],
+      // to: ['angelica.catalan@catalpro.cl','contacto@catalpro.cl'],
+      to: ['ni.catalmir@gmail.com'],
       cc: req.body.correosCopia,
       subject: 'Solicitud de Contacto Catalpro',
       html: html,
