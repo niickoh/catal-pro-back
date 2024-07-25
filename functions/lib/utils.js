@@ -10,8 +10,7 @@ const getGmailService = function() {
       // eslint-disable-next-line max-len
       CLIENT_ID,
       CLIENT_SECRET,
-      REDIRECT_URI,
-      REFRESH_TOKEN
+      REDIRECT_URI
   );
   // eslint-disable-next-line max-len
   // const accessToken = oAuth2Client.getAccessToken();
