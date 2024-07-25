@@ -16,16 +16,17 @@ const getGmailService = function() {
   // eslint-disable-next-line max-len
   const accessToken = oAuth2Client.getAccessToken();
   oAuth2Client.setCredentials({refresh_token: REFRESH_TOKEN});
+  // const gmail = google.gmail({version: 'v1', auth: oAuth2Client});
   const gmail = google.gmail({
-    service: 'gmail',
-      auth: {
-        type: 'OAuth2',
-        user: 'ni.catalmir@gmail.com',
-        clientId: CLIENT_ID,
-        clientSecret: CLIENT_SECRET,
-        refreshToken: REFRESH_TOKEN,
-        accessToken: accessToken.token,
-      },
+    version: 'v1',
+    auth: {
+      type: 'OAuth2',
+      user: 'ni.catalmir@gmail.com',
+      clientId: CLIENT_ID,
+      clientSecret: CLIENT_SECRET,
+      refreshToken: REFRESH_TOKEN,
+      accessToken: accessToken.token,
+    },
   });
   return gmail;
 };
